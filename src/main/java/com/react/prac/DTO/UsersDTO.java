@@ -4,17 +4,15 @@ import lombok.Data;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.util.Date;
 
 @Data
 public class UsersDTO {
 
     @NotBlank(message = "아이디를 입력해주세요.")
     @Size(max = 50, message = "아이디는 50자를 초과할 수 없습니다.")
+    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "아이디는 영문,숫자를 포함해야 합니다.")
     private String userId;
 
     @NotBlank(message = "비밀번호를 입력해주세요.")
@@ -26,7 +24,7 @@ public class UsersDTO {
     @Size(max = 100, message = "사용자 이름은 100자를 초과할 수 없습니다.")
     private String username;
 
-    @NotNull(message = "생년월일은 필수 입력 사항입니다.")
+    @NotBlank(message = "생년월일은 필수 입력 사항입니다.")
     private String birthDate;
 
     @NotBlank(message = "주소를 입력해주세요.")

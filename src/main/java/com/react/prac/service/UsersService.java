@@ -16,8 +16,7 @@ public class UsersService {
     public UsersService(UsersRepository userRepository) {
         this.usersRepository = userRepository;
     }
-
-    public void registerUser(UsersDTO userDTO) {
+    public void insertUser(UsersDTO userDTO) {
         Users user = new Users();
         user.setUserId(userDTO.getUserId());
         user.setPassword(userDTO.getPassword());
